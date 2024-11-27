@@ -17,18 +17,19 @@ Dieses Repository enthält ein Docker-Compose-Setup, um **Mailpit** über **Ngin
 ```plaintext
 .
 ├── certbot/
-│   ├── certbot-script.sh  # Script für die Zertifikatserstellung
+│   ├── certbot-script.sh    # Script für die Zertifikatserstellung
 ├── nginx/
-│   ├── nginx.conf         # Nginx-Konfiguration
-├── docker-compose.yml     # Docker Compose Konfigurationsdatei
-└── README.md              # Dokumentation
+│   ├── nginx.conf           # Nginx-Konfiguration
+│   ├── nginx_certbot.conf   # Nginx-Konfiguration die für das SSL Zertifikat genommen werden muss
+├── docker-compose.yml       # Docker Compose Konfigurationsdatei
+└── README.md                # Dokumentation
 ```
 
 ---
 
 ## Voraussetzungen
 
-- **Domain**: Die Domain `maildemo.kicktemp.com` muss auf die IP-Adresse deines Servers zeigen.
+- **Domain**: Die Domain `mailpit.example.com` muss auf die IP-Adresse deines Servers zeigen.
 - **Docker** und **Docker Compose** müssen installiert sein:
   - [Docker installieren](https://docs.docker.com/get-docker/)
   - [Docker Compose installieren](https://docs.docker.com/compose/install/)
@@ -40,17 +41,17 @@ Dieses Repository enthält ein Docker-Compose-Setup, um **Mailpit** über **Ngin
 ### 1. Repository klonen
 Kopiere dieses Repository auf deinen Server:
 ```bash
-git clone https://github.com/your-username/your-repository-name.git
+git clone https://github.com/Kicktemp/mailpitdocker.git
 cd your-repository-name
 ```
 
 ### 2. Certbot-Skript ausführen
-Rufe das SSL-Zertifikat für die Domain `maildemo.kicktemp.com` ab:
+Rufe das SSL-Zertifikat für die Domain `mailpit.example.com` ab:
 ```bash
 bash certbot/certbot-script.sh
 ```
 
-> **Hinweis**: Stelle sicher, dass die Domain `maildemo.kicktemp.com` korrekt konfiguriert ist und auf die Server-IP zeigt.
+> **Hinweis**: Stelle sicher, dass die Domain `mailpit.example.com` korrekt konfiguriert ist und auf die Server-IP zeigt und passe die E-Mail `youremail@example.com` an.
 
 ### 3. Dienste starten
 Starte die Dienste mit Docker Compose:
@@ -61,7 +62,7 @@ docker-compose up -d
 ### 4. Überprüfen
 Besuche die Mailpit-Oberfläche unter:
 ```
-https://maildemo.kicktemp.com
+https://mailpit.example.com
 ```
 
 ---
@@ -77,10 +78,10 @@ Die Hauptkonfigurationsdatei, die die folgenden Dienste definiert:
 ### 2. `nginx/nginx.conf`
 Nginx-Konfigurationsdatei, die:
 - Anfragen von HTTP zu HTTPS weiterleitet
-- Mailpit über `https://maildemo.kicktemp.com` bereitstellt
+- Mailpit über `https://mailpit.example.com` bereitstellt
 
 ### 3. `certbot/certbot-script.sh`
-Skript zum Abrufen eines SSL-Zertifikats für die Domain `maildemo.kicktemp.com` mit Certbot.
+Skript zum Abrufen eines SSL-Zertifikats für die Domain `mailpit.example.com` mit Certbot.
 
 ### 4. `README.md`
 Diese Dokumentation.
