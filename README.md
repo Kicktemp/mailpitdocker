@@ -1,6 +1,6 @@
 # Docker Compose Setup: Nginx, Mailpit & Certbot
 
-Dieses Repository enthält ein Docker-Compose-Setup, um **Mailpit** über **Nginx** mit SSL-Verschlüsselung (bereitgestellt von **Certbot**) unter der Domain `maildemo.kicktemp.com` bereitzustellen.
+Dieses Repository enthält ein Docker-Compose-Setup, um **Mailpit** über **Nginx** mit SSL-Verschlüsselung (bereitgestellt von **Certbot**) unter der Domain `mailpit.example.com` bereitzustellen.
 
 ## Inhaltsverzeichnis
 
