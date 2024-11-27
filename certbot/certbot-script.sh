@@ -1,7 +1,7 @@
 #!/bin/bash
 
-DOMAIN="maildemo.kicktemp.com"
-EMAIL="hello@kicktemp.comm" # Ersetze durch deine E-Mail-Adresse
+DOMAIN="mailpit.example.com"
+EMAIL="youremail@example.com" # Ersetze durch deine E-Mail-Adresse
 
 docker-compose run --rm certbot certonly \
   --webroot \
