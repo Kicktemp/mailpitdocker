@@ -20,6 +20,9 @@ services:
     ports:
       - "8025:8025" # Lokaler Zugriff (optional, nur für Debugging)
       - "1025:1025" # SMTP-Port
+    environment:
+      MP_MAX_MESSAGES: 15 # Maximale Anzahl an Nachrichten im Postfach
+      MP_MAX_AGE: 1h # Nachrichten älter als 1 Stunden werden automatisch gelöscht
     networks:
       - webnet
 
